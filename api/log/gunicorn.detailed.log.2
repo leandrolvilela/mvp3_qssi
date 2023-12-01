@@ -1,88 +1,65 @@
-[2023-11-13 20:52:46,523] ERROR _log() L96   Error on request:
+[2023-12-01 00:36:21,969] WARNING predict() L126  Erro ao adicionar paciente 'Maria', Não foi possível salvar novo item :/ - call_trace=/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/api/app.py L126 
+[2023-12-01 00:36:21,970] INFO _log() L96   127.0.0.1 - - [01/Dec/2023 00:36:21] "[31m[1mPOST /paciente HTTP/1.1[0m" 400 - - call_trace=/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/werkzeug/_internal.py L96  
+[2023-12-01 07:04:38,321] ERROR log_exception() L825  Exception on /paciente [GET] - call_trace=/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/flask/app.py L825 
 Traceback (most recent call last):
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 362, in run_wsgi
-    execute(self.server.app)
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 323, in execute
-    application_iter = app(environ, start_response)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/flask/cli.py", line 906, in app
-    raise err from None
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 362, in run_wsgi
-    execute(self.server.app)
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 323, in execute
-    application_iter = app(environ, start_response)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/flask/cli.py", line 906, in app
-    raise err from None
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 362, in run_wsgi
-    execute(self.server.app)
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 323, in execute
-    application_iter = app(environ, start_response)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/flask/cli.py", line 906, in app
-    raise err from None
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 362, in run_wsgi
-    execute(self.server.app)
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 323, in execute
-    application_iter = app(environ, start_response)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/flask/cli.py", line 906, in app
-    raise err from None
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 362, in run_wsgi
-    execute(self.server.app)
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 323, in execute
-    application_iter = app(environ, start_response)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/flask/cli.py", line 906, in app
-    raise err from None
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 362, in run_wsgi
-    execute(self.server.app)
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/serving.py", line 323, in execute
-    application_iter = app(environ, start_response)
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/flask/cli.py", line 906, in app
-    raise err from None
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/flask/cli.py", line 897, in run_command
-    app = info.load_app()
-          ^^^^^^^^^^^^^^^
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/flask/cli.py", line 312, in load_app
-    app = locate_app(import_name, None, raise_if_not_found=False)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/flask/cli.py", line 223, in locate_app
-    raise NoAppException(
-flask.cli.NoAppException: While importing 'app', an ImportError was raised:
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: pacientes.anaemia
+
+The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/home/ubuntu/miniconda3/lib/python3.11/site-packages/flask/cli.py", line 218, in locate_app
-    __import__(module_name)
-  File "/mnt/g/My Drive/Doutorado/Teaching/SoftEng4IntSysPos/exemplo_mvp/api/app.py", line 9, in <module>
-    from schemas import *
-  File "/mnt/g/My Drive/Doutorado/Teaching/SoftEng4IntSysPos/exemplo_mvp/api/schemas/__init__.py", line 1, in <module>
-    from schemas.paciente_schema import PacienteSchema,  PacienteBuscaSchema, PacienteViewSchema, PacienteDelSchema, \
-ImportError: cannot import name 'predict_diabetes' from 'schemas.paciente_schema' (/mnt/g/My Drive/Doutorado/Teaching/SoftEng4IntSysPos/exemplo_mvp/api/schemas/paciente_schema.py) - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 20:53:34,353] INFO _log() L96    * Detected change in '/mnt/g/My Drive/Doutorado/Teaching/SoftEng4IntSysPos/exemplo_mvp/api/schemas/paciente_schema.py', reloading - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 20:53:50,300] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 20:53:50] "[32mGET / HTTP/1.1[0m" 302 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 20:53:50,323] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 20:53:50] "[32mGET /openapi HTTP/1.1[0m" 308 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 20:53:50,346] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 20:53:50] "GET /openapi/ HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 20:56:49,533] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 20:56:49] "GET /pacientes HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 20:57:08,508] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 20:57:08] "GET /pacientes HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 20:57:15,570] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 20:57:15] "GET /pacientes HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 20:57:28,996] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 20:57:28] "GET /pacientes HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 20:57:32,811] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 20:57:32] "GET /pacientes HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 20:57:35,504] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 20:57:35] "GET /pacientes HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 20:57:40,288] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 20:57:40] "GET /pacientes HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 21:02:05,972] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 21:02:05] "GET /pacientes HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 21:06:32,472] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 21:06:32] "GET /pacientes HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 21:06:46,905] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 21:06:46] "DELETE /paciente?name=Maria HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 21:06:47,377] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 21:06:47] "GET /pacientes HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 21:06:47,867] WARNING delete_paciente() L178  Erro ao deletar paciente 'Maria', Paciente não encontrado na base :/ - call_trace=/mnt/g/My Drive/Doutorado/Teaching/SoftEng4IntSysPos/exemplo_mvp/api/app.py L178 
-[2023-11-13 21:06:47,869] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 21:06:47] "[33mDELETE /paciente?name=Maria HTTP/1.1[0m" 404 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 21:06:49,109] WARNING delete_paciente() L178  Erro ao deletar paciente 'Maria', Paciente não encontrado na base :/ - call_trace=/mnt/g/My Drive/Doutorado/Teaching/SoftEng4IntSysPos/exemplo_mvp/api/app.py L178 
-[2023-11-13 21:06:49,110] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 21:06:49] "[33mDELETE /paciente?name=Maria HTTP/1.1[0m" 404 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 21:06:54,561] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 21:06:54] "DELETE /paciente?name=Lucas HTTP/1.1" 200 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 21:06:55,004] WARNING get_pacientes() L50   Não há pacientes cadastrados na base :/ - call_trace=/mnt/g/My Drive/Doutorado/Teaching/SoftEng4IntSysPos/exemplo_mvp/api/app.py L50  
-[2023-11-13 21:06:55,006] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 21:06:55] "[33mGET /pacientes HTTP/1.1[0m" 404 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 21:10:05,100] WARNING get_pacientes() L50   Não há pacientes cadastrados na base :/ - call_trace=/mnt/g/My Drive/Doutorado/Teaching/SoftEng4IntSysPos/exemplo_mvp/api/app.py L50  
-[2023-11-13 21:10:05,101] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 21:10:05] "[33mGET /pacientes HTTP/1.1[0m" 404 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 21:10:44,540] INFO _log() L96    * Detected change in '/mnt/g/My Drive/Doutorado/Teaching/SoftEng4IntSysPos/exemplo_mvp/api/schemas/paciente_schema.py', reloading - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
-[2023-11-13 21:10:46,365] INFO _log() L96   127.0.0.1 - - [13/Nov/2023 21:10:46] "[35m[1mGET /pacientes HTTP/1.1[0m" 500 - - call_trace=/home/ubuntu/miniconda3/lib/python3.11/site-packages/werkzeug/_internal.py L96  
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/flask_openapi3/scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/api/app.py", line 149, in get_paciente
+    paciente = session.query(Paciente).filter(Paciente.name == paciente_nome).first()
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 2748, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: pacientes.anaemia
+[SQL: SELECT pacientes.id AS pacientes_id, pacientes.name AS pacientes_name, pacientes.age AS pacientes_age, pacientes.anaemia AS pacientes_anaemia, pacientes.creatinine_phosphokinase AS pacientes_creatinine_phosphokinase, pacientes.diabetes AS pacientes_diabetes, pacientes.ejection_fraction AS pacientes_ejection_fraction, pacientes.high_blood_pressure AS pacientes_high_blood_pressure, pacientes.platelets AS pacientes_platelets, pacientes.sex AS pacientes_sex, pacientes.serum_creatinine AS pacientes_serum_creatinine, pacientes.serum_sodium AS pacientes_serum_sodium, pacientes.smoking AS pacientes_smoking, pacientes.time AS pacientes_time, pacientes.data_insercao AS pacientes_data_insercao 
+FROM pacientes 
+WHERE pacientes.name = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('Maria', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2023-12-01 07:04:38,328] INFO _log() L96   127.0.0.1 - - [01/Dec/2023 07:04:38] "[35m[1mGET /paciente?name=Maria HTTP/1.1[0m" 500 - - call_trace=/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/werkzeug/_internal.py L96  
+[2023-12-01 07:06:05,740] INFO _log() L96   127.0.0.1 - - [01/Dec/2023 07:06:05] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/werkzeug/_internal.py L96  
+[2023-12-01 07:06:05,770] INFO _log() L96   127.0.0.1 - - [01/Dec/2023 07:06:05] "[36mGET /openapi/static/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/werkzeug/_internal.py L96  
+[2023-12-01 07:06:05,776] INFO _log() L96   127.0.0.1 - - [01/Dec/2023 07:06:05] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/werkzeug/_internal.py L96  
+[2023-12-01 07:06:05,781] INFO _log() L96   127.0.0.1 - - [01/Dec/2023 07:06:05] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=/home/leandro/Documentos/Treinamentos/Pós Engenharia Software/03 - Qualidade de Software - Segurança - Sistemas Inteligentes/MVP3_QSSI/venv/lib/python3.10/site-packages/werkzeug/_internal.py L96  
