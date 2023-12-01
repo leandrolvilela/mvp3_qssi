@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>AI Insuficiência Cardíaca System</title>
+    <link rel="icon" href="img/home_logo.jpeg" type="image/png">
+</head>
+
+<body>
+    <!-- Cabeçalho de informações do sistema -->
+    <header>
+        <div class="title">
+            <h2>Bem-Vindo ao AI para previsão de insuficiência cardíaca</h2>
+            <br>
+            <p>Este sistema foi elaborado para aprimorar a precisão para previsão de insuficiência cardíaca.</p>
+            <p>Para tal, preencha os campos abaixo com os dados do paciente e resultados dos exames, e então clique em
+                'Analisar' para obter a previsão de morte.</p>
+        </div>
+        <div class="banner">
+        </div>
+    </header>
+
+    <!-- Opções para adicionar um novo item -->
+    <section class="newItem">
+        <div class="row">
+            <input type="text" id="Nome" placeholder="Nome do paciente">
+            <input type="text" id="age" placeholder="Idade do paciente - 56">
+            <select id="anaemia">
+                <option value="0" selected>Ausência de Anemia</option>
+                <option value="1">Presença de Anemia</option>
+            </select>
+            <input type="text" id="creatinine_phosphokinase" placeholder="Creatinina fosfoquinase - 23">
+            <select id="diabetes">
+                <option value="0" selected>Ausência de Diabetes</option>
+                <option value="1">Presença de Diabetes</option>
+            </select>
+            <input type="text" id="ejection_fraction" placeholder="fração de ejeção - 33">
+            <select id="high_blood_pressure">
+                <option value="0" selected>Ausência de Hipertensão</option>
+                <option value="1">Presença de Hipertensão</option>
+            </select>
+        </div>
+        <div class="row">
+            <input type="text" id="platelets" placeholder="Plaquetas - 120000">
+            <select id="sex">
+                <option value="0">Gênero feminino</option>
+                <option value="1" selected>Gênero masculino</option>
+            </select>
+            <input type="text" id="serum_creatinine" placeholder="Creatinina sérica - 0.5">
+            <input type="text" id="serum_sodium" placeholder="Sódio sérico - 134.00">
+            <select id="smoking">
+                <option value="0" selected>Não fumante</option>
+                <option value="1">Fumante</option>
+            </select>
+            <input type="text" id="time" placeholder="Período de acompanhamento (dias) - 60">
+        </div>
+        <span onclick="newItem()" class="addBtn">Analisar</span>
+    </section>
+    
+
+    <!-- Tabela com items existentes -->
+    <section class="items">
+        <table id="myTable">
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Anemia</th>
+                <th>creatinina fosfoquinase</th>
+                <th>Diabetes</th>
+                <th>fração de ejeção</th>
+                <th>Hipertensão</th>
+                <th>Plaquetas</th>
+                <th>Sexo</th>
+                <th>creatinina sérica</th>
+                <th>sódio sérico</th>
+                <th>tabagismo</th>
+                <th>período de acompanhamento (dias)</th>
+                <th>creatinina sérica</th>
+                <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15" height="15"></th>
+                <!-- <th><img src="img/edit.png" width="15" height="15"></th> -->
+            </tr>
+        </table>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

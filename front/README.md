@@ -8,11 +8,3 @@ O objetivo aqui é ilutsrar o conteúdo apresentado na terceira aula.
 ## Como executar
 
 Basta fazer o download do projeto e abrir o arquivo index.html no seu browser.
-
-# Minha API
-
-pip install -r requirements.txt
-
-pip freeze > requirements.txt
-
-Esté é para ser utilizado no Back-end da aplicação, ou seja, o Front-end consumirá os endpoints da minha api
