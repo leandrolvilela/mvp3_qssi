@@ -19,6 +19,7 @@ class Model:
     def preditor(model, form):
         """Realiza a predição de um paciente com base no modelo treinado
         """
+
         X_input = np.array([form.age, 
                             form.anaemia, 
                             form.creatinine_phosphokinase, 
@@ -34,4 +35,9 @@ class Model:
                         ])
         # Faremos o reshape para que o modelo entenda que estamos passando
         diagnosis = model.predict(X_input.reshape(1, -1))
+        
+        # for diagnosi in diagnosis:
+        #     print(diagnosi)
+
+
         return int(diagnosis[0])

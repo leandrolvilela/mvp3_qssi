@@ -17,7 +17,7 @@ CORS(app)
 
 # Definindo tags para agrupamento das rotas
 home_tag = Tag(name="Documentação", description="Seleção de documentação: Swagger, Redoc ou RapiDoc")
-paciente_tag = Tag(name="Paciente", description="Adição, visualização, remoção e predição de pacientes com Diabetes")
+paciente_tag = Tag(name="Paciente", description="Adição, visualização, remoção e predição de pacientes com insuficiência cardíaca")
 
 
 # Rota home
@@ -45,7 +45,7 @@ def get_pacientes():
     
     # Buscando todos os pacientes
     pacientes = session.query(Paciente).all()
-    
+        
     if not pacientes:
         logger.warning("Não há pacientes cadastrados na base :/")
         return {"message": "Não há pacientes cadastrados na base :/"}, 404

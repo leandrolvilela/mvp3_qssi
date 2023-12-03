@@ -22,6 +22,7 @@ class Paciente(Base):
     serum_sodium             = Column("serum_sodium", Float)
     smoking                  = Column("smoking", Integer)
     time                     = Column("time", Integer)
+    outcome                  = Column("outcome", Integer, nullable=True)
     data_insercao            = Column(DateTime, default=datetime.now())
     
     def __init__(self, name:str, age:int, anaemia:int, creatinine_phosphokinase:int, 

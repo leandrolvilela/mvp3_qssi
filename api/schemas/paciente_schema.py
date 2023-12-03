@@ -20,10 +20,7 @@ class PacienteSchema(BaseModel):
     serum_sodium             : float = 134.00
     smoking                  : int = 0
     time                     : int = 60
-
-
-
-    
+   
 class PacienteViewSchema(BaseModel):
     """Define como um paciente será retornado
     """
@@ -41,6 +38,7 @@ class PacienteViewSchema(BaseModel):
     serum_sodium             : float = 134.00
     smoking                  : int = 0
     time                     : int = 60
+    outcome                  : int = None
     
 class PacienteBuscaSchema(BaseModel):
     """Define como deve ser a estrutura que representa a busca.
@@ -64,6 +62,7 @@ def apresenta_paciente(paciente: Paciente):
     """ Retorna uma representação do paciente seguindo o schema definido em
         PacienteViewSchema.
     """
+    print(f'OUTCOME: {paciente.outcome}')
     return {
         "id"                      : paciente.id,
         "name"                    : paciente.name,
@@ -78,7 +77,8 @@ def apresenta_paciente(paciente: Paciente):
         "serum_creatinine"        : paciente.serum_creatinine,
         "serum_sodium"            : paciente.serum_sodium,
         "smoking"                 : paciente.smoking,
-        "time"                    : paciente.time
+        "time"                    : paciente.time,
+        "outcome"                 : paciente.outcome
     }
     
 # Apresenta uma lista de pacientes
@@ -102,7 +102,8 @@ def apresenta_pacientes(pacientes: List[Paciente]):
         "serum_creatinine"        : paciente.serum_creatinine,
         "serum_sodium"            : paciente.serum_sodium,
         "smoking"                 : paciente.smoking,
-        "time"                    : paciente.time
+        "time"                    : paciente.time,
+        "outcome"                 : paciente.outcome
         })
 
     return {"pacientes": result}
