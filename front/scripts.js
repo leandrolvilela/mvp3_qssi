@@ -10,17 +10,22 @@ const getList = async () => {
   })
     .then((response) => response.json())
     .then((data) => {
-      data.pacientes.forEach(item => insertList(item.name, 
-                                                item.preg, 
-                                                item.plas,
-                                                item.pres,
-                                                item.skin,
-                                                item.test,
-                                                item.mass,
-                                                item.pedi,
-                                                item.age,
-                                                item.outcome
-                                              ))
+      console.log(data)
+      data.pacientes.forEach(item => insertList(item.name,
+        item.age,
+        item.anaemia,
+        item.creatinine_phosphokinase,
+        item.diabetes,
+        item.ejection_fraction,
+        item.high_blood_pressure,
+        item.platelets,
+        item.sex,
+        item.serum_creatinine,
+        item.serum_sodium,
+        item.smoking,
+        item.time,
+        item.outcome
+      ))
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -42,20 +47,25 @@ getList()
   Função para colocar um item na lista do servidor via requisição POST
   --------------------------------------------------------------------------------------
 */
-const postItem = async (inputPatient, inputPreg, inputPlas,
-                        inputPres, inputSkin, inputTest, 
-                        inputMass, inputPedi, inputAge) => {
-    
+const postItem = async (inputName, inputAge, inputAnaemia,
+  inputCrPh, inputdiabetes, inputEjFr,
+  inputHBPr, inputPlatelets, inputSex,
+  inputSCre, inputSSod, inputSmoking, inputTime, callback) => {
+
   const formData = new FormData();
-  formData.append('name', inputPatient);
-  formData.append('preg', inputPreg);
-  formData.append('plas', inputPlas);
-  formData.append('pres', inputPres);
-  formData.append('skin', inputSkin);
-  formData.append('test', inputTest);
-  formData.append('mass', inputMass);
-  formData.append('pedi', inputPedi);
+  formData.append('name', inputName);
   formData.append('age', inputAge);
+  formData.append('anaemia', inputAnaemia);
+  formData.append('creatinine_phosphokinase', inputCrPh);
+  formData.append('diabetes', inputdiabetes);
+  formData.append('ejection_fraction', inputEjFr);
+  formData.append('high_blood_pressure', inputHBPr);
+  formData.append('platelets', inputPlatelets);
+  formData.append('sex', inputSex);
+  formData.append('serum_creatinine', inputSCre);
+  formData.append('serum_sodium', inputSSod);
+  formData.append('smoking', inputSmoking);
+  formData.append('time', inputTime);
 
   let url = 'http://127.0.0.1:5000/paciente';
   fetch(url, {
@@ -63,6 +73,9 @@ const postItem = async (inputPatient, inputPreg, inputPlas,
     body: formData
   })
     .then((response) => response.json())
+    .then((data) => {
+      callback(data.outcome);
+    })
     .catch((error) => {
       console.error('Error:', error);
     });
@@ -111,7 +124,7 @@ const removeElement = () => {
 */
 const deleteItem = (item) => {
   console.log(item)
-  let url = 'http://127.0.0.1:5000/paciente?name='+item;
+  let url = 'http://127.0.0.1:5000/paciente?name=' + item;
   fetch(url, {
     method: 'delete'
   })
@@ -126,34 +139,55 @@ const deleteItem = (item) => {
   Função para adicionar um novo item com nome, quantidade e valor 
   --------------------------------------------------------------------------------------
 */
+
+// const postItem = async (inputName, inputAge, inputAnaemia,
+//   inputCrPh, inputdiabetes, inputEjFr, 
+//   inputHBPr, inputPlatelets, inputSCre,
+//   inputSSod, inputSmoking, inputTime) => {
+
 const newItem = async () => {
-  let inputPatient = document.getElementById("newInput").value;
-  let inputPreg = document.getElementById("newPreg").value;
-  let inputPlas = document.getElementById("newPlas").value;
-  let inputPres = document.getElementById("newPres").value;
-  let inputSkin = document.getElementById("newSkin").value;
-  let inputTest = document.getElementById("newTest").value;
-  let inputMass = document.getElementById("newMass").value;
-  let inputPedi = document.getElementById("newPedi").value;
+  let inputName = document.getElementById("newName").value;
   let inputAge = document.getElementById("newAge").value;
+  let inputAnaemia = document.getElementById("newAnaemia").value;
+  let inputCrPh = document.getElementById("newCrPh").value;
+  let inputDiabetes = document.getElementById("newDiabetes").value;
+  let inputEjFr = document.getElementById("newEjFr").value;
+  let inputHBPr = document.getElementById("newHBPr").value;
+  let inputPlatelets = document.getElementById("newPlatelets").value;
+  let inputSex = document.getElementById("newSex").value;
+  let inputSCre = document.getElementById("newSCre").value;
+  let inputSSod = document.getElementById("newSSod").value;
+  let inputSmoking = document.getElementById("newSmoking").value;
+  let inputTime = document.getElementById("newTime").value;
 
   // Verifique se o nome do produto já existe antes de adicionar
-  const checkUrl = `http://127.0.0.1:5000/pacientes?nome=${inputPatient}`;
+  const checkUrl = `http://127.0.0.1:5000/pacientes?nome=${inputName}`;
   fetch(checkUrl, {
     method: 'get'
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data.pacientes && data.pacientes.some(item => item.name === inputPatient)) {
+      if (data.pacientes && data.pacientes.some(item => item.name === inputName)) {
         alert("O paciente já está cadastrado.\nCadastre o paciente com um nome diferente ou atualize o existente.");
-      } else if (inputPatient === '') {
+      } else if (inputName === '') {
         alert("O nome do paciente não pode ser vazio!");
-      } else if (isNaN(inputPreg) || isNaN(inputPlas) || isNaN(inputPres) || isNaN(inputSkin) || isNaN(inputTest) || isNaN(inputMass) || isNaN(inputPedi) || isNaN(inputAge)) {
+      } else if (isNaN(inputAge) || isNaN(inputAnaemia) || isNaN(inputCrPh) || isNaN(inputDiabetes) || isNaN(inputEjFr) || isNaN(inputHBPr) || isNaN(inputPlatelets) || isNaN(inputSCre) || isNaN(inputSSod) || isNaN(inputSmoking) || isNaN(inputTime)) {
         alert("Esse(s) campo(s) precisam ser números!");
       } else {
-        insertList(inputPatient, inputPreg, inputPlas, inputPres, inputSkin, inputTest, inputMass, inputPedi, inputAge);
-        postItem(inputPatient, inputPreg, inputPlas, inputPres, inputSkin, inputTest, inputMass, inputPedi, inputAge);
-        alert("Item adicionado!");
+        var inputOutcome = null;
+
+        postItem(inputName, inputAge, inputAnaemia, inputCrPh,
+          inputDiabetes, inputEjFr, inputHBPr, inputPlatelets,
+          inputSex, inputSCre, inputSSod, inputSmoking, inputTime,
+          (outcome) => {
+
+            inputOutcome = outcome;
+
+            insertList(inputName, inputAge, inputAnaemia, inputCrPh, inputDiabetes, inputEjFr, inputHBPr, inputPlatelets, inputSex, inputSCre, inputSSod, inputSmoking, inputTime, inputOutcome);
+            alert("Item adicionado!");
+
+          });
+
       }
     })
     .catch((error) => {
@@ -167,29 +201,67 @@ const newItem = async () => {
   Função para inserir items na lista apresentada
   --------------------------------------------------------------------------------------
 */
-const insertList = (namePatient, preg, plas,pres, skin, test, mass, pedi, age, outcome) => {
-  var item = [namePatient, preg, plas,pres, skin, test, mass, pedi, age, outcome];
+const insertList = (name, age, anaemia, creatinine_phosphokinase, diabetes, ejection_fraction, high_blood_pressure, platelets, sex, serum_creatinine, serum_sodium, smoking, time, outcome) => {
+  var item = [name, age, anaemia, creatinine_phosphokinase, diabetes, ejection_fraction, high_blood_pressure, platelets, sex, serum_creatinine, serum_sodium, smoking, time, outcome];
   var table = document.getElementById('myTable');
   var row = table.insertRow();
 
   for (var i = 0; i < item.length; i++) {
     var cell = row.insertCell(i);
-    cell.textContent = item[i];
+    var valor = item[i] 
+
+    // Condições para converter valores binários em strings
+    var anemiaString       = valor === 1 ? "Sim" : "Não";
+    var diabetesString     = valor === 1 ? "Sim" : "Não";
+    var hypertensionString = valor === 1 ? "Sim" : "Não";
+    var genderString       = valor === 1 ? "Masculino" : "Feminino";
+    var smokingString      = valor === 1 ? "Sim" : "Não";
+    var outcomeString      = valor === 1 ? "Sim" : "Não";
+
+    // Verifica o índice e atribui a string correspondente
+    switch (i) {
+      case 2:
+        valor = anemiaString;
+        break;
+      case 4:
+        valor = diabetesString;
+        break;
+      case 6:
+        valor = hypertensionString;
+        break;
+      case 8:
+        valor = genderString;
+        break;
+      case 11:
+        valor = smokingString;
+        break;
+      case 13:
+        valor = outcomeString;
+        break;
+      default:
+        break;
+    }
+
+    cell.textContent = valor;
+    //console.log("Linhas: [" + i + "]" + item[i])
   }
 
   var deleteCell = row.insertCell(-1);
   insertDeleteButton(deleteCell);
 
-
-  document.getElementById("newInput").value = "";
-  document.getElementById("newPreg").value = "";
-  document.getElementById("newPlas").value = "";
-  document.getElementById("newPres").value = "";
-  document.getElementById("newSkin").value = "";
-  document.getElementById("newTest").value = "";
-  document.getElementById("newMass").value = "";
-  document.getElementById("newPedi").value = "";
+  document.getElementById("newName").value = "";
   document.getElementById("newAge").value = "";
+  document.getElementById("newAnaemia").value = "0";
+  document.getElementById("newCrPh").value = "";
+  document.getElementById("newDiabetes").value = "0";
+  document.getElementById("newEjFr").value = "";
+  document.getElementById("newHBPr").value = "0";
+  document.getElementById("newPlatelets").value = "";
+  document.getElementById("newSex").value = "1"
+  document.getElementById("newSCre").value = "";
+  document.getElementById("newSSod").value = "";
+  document.getElementById("newSmoking").value = "0";
+  document.getElementById("newTime").value = "";
 
   removeElement();
 }

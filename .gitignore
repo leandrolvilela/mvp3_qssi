@@ -279,3 +279,4 @@ pyrightconfig.json
 **/log
 .log/
 log
+api/log
