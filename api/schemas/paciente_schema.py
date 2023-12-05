@@ -62,7 +62,7 @@ def apresenta_paciente(paciente: Paciente):
     """ Retorna uma representação do paciente seguindo o schema definido em
         PacienteViewSchema.
     """
-    print(f'OUTCOME: {paciente.outcome}')
+    
     return {
         "id"                      : paciente.id,
         "name"                    : paciente.name,

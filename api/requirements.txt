@@ -9,3 +9,4 @@ SQLAlchemy-Utils
 typing_extensions
 scikit-learn==1.2.2
 pytest
+pandas

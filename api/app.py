@@ -79,10 +79,9 @@ def predict(form: PacienteSchema):
     Returns:
         dict: representação do paciente e diagnóstico associado
     """
-    
     # Carregando modelo
-    ml_path = 'ml_model/classificador_v2.pkl'
-    modelo = Model.carrega_modelo(ml_path)
+    ml_path = 'ml_model/classificador.pkl'
+    modelo  = Model.carrega_modelo(ml_path)
     
     paciente = Paciente(
         name                     = form.name.strip(),
