@@ -1,8 +1,13 @@
 # Meu Front
+Nome:Leandro Lemes Vilela
 
-Este pequeno projeto faz parte do material diático da Disciplina **Desenvolvimento Full Stack Básico** 
+Este pequeno projeto faz parte do material diático da Disciplina **Engenharia de Software** 
 
-O objetivo aqui é ilutsrar o conteúdo apresentado na terceira aula.
+O objetivo aqui é apresentar o MVP da Sprint: Qualidade de Software, Segurança e Sistemas Inteligentes
+
+No Arquivo "Previsão de insuficiência cardíaca.txt" temos mais detalhes sobre a fonte dos dados e a análise de resultados do modelo
+
+O arquivo Previsão_de_insuficiência_cardíaca_Engenharia_de_Software.ipjnb possui a construção do modelo e o código para gerar o arquivo de modelo .pkl
 
 ---
 ## Como executar
